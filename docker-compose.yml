@@ -1,0 +1,31 @@
+services:
+  server:
+    build: 
+      context: ./server
+      target: server
+    env_file:
+      - ./server/.env
+    volumes:
+      - ./server:/app
+      - ./server/node_modules:/app/node_modules
+    ports:
+      - 3000:3000
+
+  client:
+    build: 
+      context: ./client
+      target: client
+    env_file:
+      - ./client/.env
+    volumes:
+      - ./client:/app
+      - ./client/node_modules:/app/node_modules
+    ports:
+      - 5173:5173
+    environment:
+      - HOST=0.0.0.0
+      - PORT=5173
+      - REACT_APP_API_ENDPOINT="http://localhost:3000"
+    depends_on:
+      - server
+    
