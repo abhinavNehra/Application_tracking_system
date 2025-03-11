@@ -1,28 +1,44 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
+import globals from "globals";
+import pluginJs from "@eslint/js";
+import tseslint from "typescript-eslint";
+import pluginReact from "eslint-plugin-react";
 
-export default tseslint.config(
-  { ignores: ['dist'] },
+/** @type {import('eslint').Linter.Config[]} */
+export default [
   {
-    extends: [js.configs.recommended, ...tseslint.configs.recommended],
-    files: ['**/*.{ts,tsx}'],
+    files: [
+      "./app/*.{ts,tsx}",
+      "./app/**/*.{ts,tsx}",
+      "./app/**/**/*.{ts,tsx}",
+    ],
+  },
+  {
     languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
-    plugins: {
-      'react-hooks': reactHooks,
-      'react-refresh': reactRefresh,
-    },
-    rules: {
-      ...reactHooks.configs.recommended.rules,
-      'react-refresh/only-export-components': [
-        'warn',
-        { allowConstantExport: true },
-      ],
+      ...pluginReact.configs.flat.recommended.languageOptions,
+      globals: {
+        ...globals.serviceworker,
+        ...globals.browser,
+      },
     },
   },
-)
+  pluginJs.configs.recommended,
+  ...tseslint.configs.recommended,
+  pluginReact.configs.flat.recommended,
+  pluginReact.configs.flat["jsx-runtime"], // Add this if you are using React 17+
+  {
+    rules: {
+      "no-unused-vars": "off",
+      "no-undef": "off",
+      "react/react-in-jsx-scope": "off",
+      "react/jsx-uses-react": "error",
+      "react/jsx-uses-vars": "error",
+      "@typescript-eslint/no-unused-vars": "error",
+      "@typescript-eslint/no-undef": "warn",
+    },
+    settings: {
+      react: {
+        version: "detect",
+      },
+    },
+  },
+];

@@ -2,14 +2,22 @@
   "name": "server",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts"
+    "dev": "tsx watch src/index.ts",
+    "lint": "eslint src --ext .ts --debug"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.8",
     "hono": "^4.7.2"
   },
   "devDependencies": {
+    "@eslint/js": "^9.22.0",
     "@types/node": "^20.11.17",
-    "tsx": "^4.7.1"
+    "eslint": "^9.22.0",
+    "tsx": "^4.7.1",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.0",
+    "@typescript-eslint/eslint-plugin": "^8.26.0",
+    "@typescript-eslint/parser": "^8.26.0",
+    "eslint-plugin-only-warn": "^1.1.0"
   }
 }
