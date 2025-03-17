@@ -1,29 +1,41 @@
-import { Outlet } from "react-router";
-import api from '../utils/api'
+import { Outlet, redirect } from "react-router";
+import api from "../utils/api";
 
-import type { Route } from "../+types/root";
+import type { Route } from "../layout/+types/auth";
+import { Box, AppBar, Toolbar, Container } from "@mui/material";
 
-// async function action({ request }: Route.ActionArgs) {
-//     // Call api to check if user is login or not
-// }
-
-async function loader(params: Route.LoaderArgs) {
+export async function loader(params: Route.LoaderArgs) {
   // Call api to check if user is login or not
   const result = await api({
     url: "/api/user",
     method: "GET",
-    body: {},
-  })
+  });
 
-    if (result.status >= 200 && result.status < 300) {
-        return { user: await result.json() };
-    }
+  if (result?.success) {
+    return redirect("/");
+  }
 }
 
-export default (porps: Route.ComponentProps) => {
+export default function AuthLayout({}: Route.ComponentProps) {
   return (
-    <div>
-      <Outlet />
-    </div>
+    <Box>
+      <AppBar position="static">
+      <Toolbar disableGutters>
+            <Box>
+              <h1>LOGO</h1>
+            </Box>
+          </Toolbar>
+        {/* <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Box>
+              <h1>L</h1>
+            </Box>
+          </Toolbar>
+        </Container> */}
+      </AppBar>
+      <Container>
+        <Outlet />
+      </Container>
+    </Box>
   );
-};
+}
