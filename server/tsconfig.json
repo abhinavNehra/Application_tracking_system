@@ -1,13 +1,19 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
-    "target": "ESNext",
+    //"outDir": "dist",
+    "target": "es2022",
+    "lib": ["es2023"],
     "module": "NodeNext",
     "strict": true,
     "verbatimModuleSyntax": true,
     "skipLibCheck": true,
-    "types": ["node"]
+    "types": ["node"],
+    "allowJs": true,
+    "composite": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
   },
+  "extends": "@tsconfig/node22/tsconfig.json",
   "include": ["./src", "./src/*", "./src/**/*", "."],
   "exclude": ["node_modules"]
 }

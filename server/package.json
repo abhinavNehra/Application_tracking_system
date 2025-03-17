@@ -2,22 +2,28 @@
   "name": "server",
   "type": "module",
   "scripts": {
-    "dev": "tsx watch src/index.ts",
+    "dev": "tsx watch --env-file=.env src/index.ts",
     "lint": "eslint src --ext .ts --debug"
   },
   "dependencies": {
     "@hono/node-server": "^1.13.8",
-    "hono": "^4.7.2"
+    "drizzle-orm": "^0.40.0",
+    "hono": "^4.7.2",
+    "hono-rate-limiter": "^0.4.2",
+    "pg": "^8.14.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.22.0",
+    "@tsconfig/node22": "^22.0.0",
     "@types/node": "^20.11.17",
-    "eslint": "^9.22.0",
-    "tsx": "^4.7.1",
-    "typescript": "^5.8.2",
-    "typescript-eslint": "^8.26.0",
+    "@types/pg": "^8.11.11",
     "@typescript-eslint/eslint-plugin": "^8.26.0",
     "@typescript-eslint/parser": "^8.26.0",
-    "eslint-plugin-only-warn": "^1.1.0"
+    "drizzle-kit": "^0.30.5",
+    "eslint": "^9.22.0",
+    "eslint-plugin-only-warn": "^1.1.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.0"
   }
 }
