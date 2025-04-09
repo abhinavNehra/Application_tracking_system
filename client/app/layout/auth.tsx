@@ -1,41 +1,40 @@
-import { Outlet, redirect } from "react-router";
-import api from "../utils/api";
+import { AppBar, Box, Container, Toolbar } from '@mui/material';
+import { Outlet, redirect } from 'react-router';
 
-import type { Route } from "../layout/+types/auth";
-import { Box, AppBar, Toolbar, Container } from "@mui/material";
+import api from '../utils/api';
 
-export async function loader(params: Route.LoaderArgs) {
-  // Call api to check if user is login or not
-  const result = await api({
-    url: "/api/user",
-    method: "GET",
-  });
+export async function loader() {
+    // Call api to check if user is login or not
+    const result = await api({
+        url: '/api/user',
+        method: 'GET',
+    });
 
-  if (result?.success) {
-    return redirect("/");
-  }
+    if (result?.success) {
+        return redirect('/');
+    }
 }
 
-export default function AuthLayout({}: Route.ComponentProps) {
-  return (
-    <Box>
-      <AppBar position="static">
-      <Toolbar disableGutters>
-            <Box>
-              <h1>LOGO</h1>
-            </Box>
-          </Toolbar>
-        {/* <Container maxWidth="xl">
+export default function AuthLayout() {
+    return (
+        <Box>
+            <AppBar position="static">
+                <Toolbar disableGutters>
+                    <Box>
+                        <h1>LOGO</h1>
+                    </Box>
+                </Toolbar>
+                {/* <Container maxWidth="xl">
           <Toolbar disableGutters>
             <Box>
               <h1>L</h1>
             </Box>
           </Toolbar>
         </Container> */}
-      </AppBar>
-      <Container>
-        <Outlet />
-      </Container>
-    </Box>
-  );
+            </AppBar>
+            <Container>
+                <Outlet />
+            </Container>
+        </Box>
+    );
 }

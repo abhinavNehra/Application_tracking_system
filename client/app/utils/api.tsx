@@ -4,8 +4,6 @@ type config = {
   body?: object;
 };
 
-console.log(import.meta.env);
-
 const api = async (config: config) => {
   const { url, method, body } = config;
   const options: RequestInit = {
@@ -23,10 +21,10 @@ const api = async (config: config) => {
   return fetch(process.env.BACKEND_URL + url, options)
     .then((res) => res.json())
     .catch((err) => {
-      console.log(err);
+      console.error(err);
       return {
         success: false,
-        error: "Error",
+        error: err,
       };
     });
 };

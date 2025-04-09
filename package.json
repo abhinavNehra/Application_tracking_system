@@ -1,0 +1,44 @@
+{
+  "name": "ats",
+  "version": "1.0.0",
+  "private": true,
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "scripts": {
+    "start": "npm-run-all --parallel start:*",
+    "start:service1": "npm run start --workspace=server",
+    "start:service2": "npm run start --workspace=client",
+    "dev": "npm-run-all --parallel dev:*",
+    "dev:service1": "npm run dev --workspace=server",
+    "dev:service2": "npm run dev --workspace=client",
+    "dev:service3": "npm run dev --workspace=shared",
+    "build": "npm-run-all --parallel build:*",
+    "build:service1": "npm run build --workspace=server",
+    "build:service2": "npm run build --workspace=client",
+    "test": "npm-run-all --parallel test:*",
+    "test:service1": "npm run test --workspace=server",
+    "test:service2": "npm run test --workspace=client",
+    "lint": "eslint . --ext .ts,.tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext .ts,.tsx --fix",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "check-types": "turbo run check-types",
+    "generate": "cd server && drizzle-kit generate",
+    "migrate": "cd server && drizzle-kit migrate"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "packageManager": "npm@10.8.2",
+  "workspaces": [
+    "client",
+    "server",
+    "shared"
+  ],
+  "dependencies": {
+    "bcrypt": "^5.1.1"
+  }
+}

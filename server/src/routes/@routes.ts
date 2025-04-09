@@ -1,7 +1,7 @@
 import { Hono } from "hono";
 
-import Auth from './auth.js'
-import User from './user.js'
+import Auth from './auth.ts'
+import User from './user.ts'
 
 const app = new Hono();
 
