@@ -1,0 +1,14 @@
+{
+  "name": "@ats/eslint-config",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "tsc --watch",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@tsconfig/node22": "^22.0.0"
+  }
+}
