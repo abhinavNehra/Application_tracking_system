@@ -1,5 +1,4 @@
-import { faBars } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { Bars2Icon } from "@heroicons/react/24/solid";
 import { AppBar, Box, Toolbar } from '@mui/material';
 
 import useStore from '../store/layout';
@@ -10,7 +9,7 @@ function ToggleSidebarButton() {
 
     return (
         <Box onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
-            <FontAwesomeIcon icon={faBars} />
+            <Bars2Icon className="size-24 text-white-500" />
         </Box>
     );
 }

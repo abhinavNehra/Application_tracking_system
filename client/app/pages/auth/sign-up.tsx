@@ -6,7 +6,8 @@ import { getValidatedFormData, useRemixForm } from 'remix-hook-form';
 
 import api from '../../utils/api';
 
-import type { Route } from '../../components/auth/+types/sign-up';
+import type { Route } from './+types/sign-up';
+
 
 const resolver = zodResolver(SignupSchema);
 

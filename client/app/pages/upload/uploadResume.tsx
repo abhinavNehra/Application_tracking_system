@@ -1,5 +1,4 @@
-import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { CloudArrowUpIcon } from "@heroicons/react/24/solid";
 import { Button, styled } from "@mui/material";
 
 import { parseResumeFromPdf } from "../../lib/parse-resume-from-pdf";
@@ -52,7 +51,7 @@ const UploadResume = () => {
           role={undefined}
           variant="contained"
           tabIndex={-1}
-          startIcon={<FontAwesomeIcon icon={faCloudArrowUp} />}
+          startIcon={<CloudArrowUpIcon  />}
         >
           Upload files
           <VisuallyHiddenInput

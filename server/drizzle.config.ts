@@ -5,7 +5,7 @@ export default defineConfig({
   out: './drizzle',
   schema: './src/db/schema',
   dialect: 'postgresql',
-  casing: 'snake_case',
+  //casing: 'snake_case',
   dbCredentials: {
     user: env.DATABASE_USER,
     host: env.DATABASE_HOST,

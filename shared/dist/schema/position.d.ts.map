@@ -1,0 +1,1 @@
+{"version":3,"file":"position.d.ts","sourceRoot":"","sources":["../../schema/position.ts"],"names":[],"mappings":"AAAA,OAAO,CAAC,MAAM,KAAK,CAAC;AAGpB,eAAO,MAAM,cAAc;;;;;;;;;;;;EAOzB,CAAC;AAEH,MAAM,MAAM,kBAAkB,GAAG,CAAC,CAAC,KAAK,CAAC,OAAO,cAAc,CAAC,CAAA;AAE/D,eAAO,MAAM,oBAAoB;;;;;;;;;EAG/B,CAAC;AAEH,eAAO,MAAM,WAAW;;;;;;EAEtB,CAAC;AAEH,eAAO,MAAM,wBAAwB;;;;;;;;;EAGnC,CAAC"}

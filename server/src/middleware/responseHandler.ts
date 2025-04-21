@@ -34,11 +34,13 @@ function successResponse(c: Context) {
 }
 
 function errorResponse(c: Context) {
-  return <E>(data: E, status: errorStatusCodesHandler = 500) => {
+  return <E extends Error | unknown>(data: E, status: errorStatusCodesHandler = 500) => {
+    console.error(data)
+    const message = data instanceof Error? data.message : data
     return c.json(
       {
         status: false,
-        data,
+        data: message,
       },
       status
     );

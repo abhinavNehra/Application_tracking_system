@@ -1,7 +1,6 @@
 import { useSortable } from '@dnd-kit/sortable';
 import { CSS } from '@dnd-kit/utilities';
-import { faBuilding } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { BuildingOfficeIcon } from "@heroicons/react/24/solid";
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import { forwardRef } from 'react';
@@ -75,7 +74,7 @@ export const Item = forwardRef<
                         }}
                     >
                         <Typography variant="subtitle1">{deal.name}</Typography>
-                        <FontAwesomeIcon size="sm" icon={faBuilding} />
+                        <BuildingOfficeIcon className='size-6 text-blue-500' />
                     </Box>
                     <Typography variant="body2" color="text.secondary">
                         {deal?.companyName}

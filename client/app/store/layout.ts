@@ -5,7 +5,7 @@ type Store = {
     setIsSidebarOpen: (isSidebarOpen: boolean) => void;
 }
 
-const useStore = create<Store>((set) => ({
+const useStore = create<Store>()((set) => ({
     isSidebarOpen: false,
     setIsSidebarOpen: (isSidebarOpen: boolean) => set({ isSidebarOpen }),
 }));

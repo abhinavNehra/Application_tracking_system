@@ -32,10 +32,11 @@ function MainLayout() {
                 <Box
                     component="main"
                     sx={{
+                        overflow: 'scroll',
+                        maxHeight: '90vh',
+                        minHeight: '90vh',
                         flexGrow: 1,
-                        p: 3,
                         width: { sm: `calc(100% - ${DRAWER_WIDTH}px)` },
-                        minHeight: '100vh',
                         marginTop: `${APPBAR_HEIGHT}px`,
                         backgroundColor: (theme) =>
                             theme.palette.background.default,

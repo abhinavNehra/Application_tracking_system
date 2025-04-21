@@ -11,7 +11,6 @@ import { checkDb } from './db/db.ts';
 import env from './env.ts';
 
 import { responseHandler } from './middleware/responseHandler.ts';
-import { sessionHandler } from './middleware/sessionHandler.ts';
 import routes from './routes/@routes.ts';
 
 
@@ -39,7 +38,6 @@ app
     })
   ) // limit the number of requests
   .use(responseHandler)
-  .use(sessionHandler)
   .get('healthcare', async (c) => {
     const result = await checkDb();
     c.json({ result });
